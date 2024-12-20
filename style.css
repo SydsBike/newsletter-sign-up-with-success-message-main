@@ -238,9 +238,22 @@ input::placeholder {
 .button:hover,
 .button:focus-visible,
 .button:focus {
+  position: relative;
   outline: none;
   border: none;
   background: linear-gradient(-90deg, var(--color-accent-gradient-start), var(--color-accent-gradient-end));
+}
+
+.button:hover::after, .button:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: red;
+  border-radius: inherit;
+  translate: 0 1.5rem;
+  filter: blur(1rem);
+  opacity: .125;
+
 }
 
 input:not(:focus):invalid {
